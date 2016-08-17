@@ -1,0 +1,33 @@
+{
+  "name": "webpack-demystified",
+  "version": "1.0.0",
+  "description": "### Game Plan:   - Part 1:     - Understand what Webpack is, and why it is useful   - Part 2:     - Build a basic Webpack file from scratch   - Part 3:     - Realize that Webpack is like your organized but slightly finicky butler taking care of everything for you (as long as you give them the right instructions).",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot --inline",
+    "build": "webpack",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martensonbj/webpack-demystified.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/martensonbj/webpack-demystified/issues"
+  },
+  "homepage": "https://github.com/martensonbj/webpack-demystified#readme",
+  "devDependencies": {
+    "babel-loader": "^6.2.4",
+    "chai": "^3.5.0",
+    "css-loader": "^0.23.1",
+    "mocha": "^3.0.2",
+    "mocha-loader": "^0.7.1",
+    "node-sass": "^3.8.0",
+    "sass-loader": "^4.0.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
