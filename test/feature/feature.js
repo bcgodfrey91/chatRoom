@@ -45,11 +45,11 @@ describe('attributes of our application', function(){
   it('should generate a delayed response to the users message', function(){
     var botMessage = browser.element('.bot-message')
 
-    //fix this test plzzzzzzzzzz
 
+    browser.timeoutsImplicitWait(1200);
     assert.equal(botMessage.getText(), 'Hello')
   })
 
-  
+
 
 })
