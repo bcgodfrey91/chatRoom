@@ -11,7 +11,7 @@ describe ('webpage interaction', function(){
 describe('attributes of our application', function(){
   it('should have an input field that we can type in', function(){
     browser.url('/');
-    var userMessage = browser.element('.user-message')
+    var userMessage = browser.element('.user-input')
 
     userMessage.setValue('generally terrible comment')
 
@@ -27,14 +27,14 @@ describe('attributes of our application', function(){
   })
 
   it('should set input field back to blank', function(){
-  var userMessage = browser.element('.user-message')
+  var userMessage = browser.element('.user-input')
 
   assert.equal(userMessage.getValue(), '')
   })
 
-  it('should disable the send button if user has not typed anything', function(){
+  // it('should disable the send button if user has not typed anything', function(){
+  //
+  // })
 
-  })
 
-  
 })
