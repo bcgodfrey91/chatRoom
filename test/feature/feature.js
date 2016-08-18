@@ -19,15 +19,10 @@ describe('attributes of our application', function(){
   })
 
   it('should have a button that lets us send that message', function(){
-    browser.url('/');
-    //message info
-    var userMessage = browser.element('.user-message')
-    userMessage.setValue('generally terrible comment')
-    assert.equal(userMessage.getValue(), 'generally terrible comment')
-    //submit button info
-    browser.click('.submit-button')
 
-    var allIdeas = browser.getText('li')
-    assert.equal(allIdeas.replace(/\n/g, ", "), 'great comment')
+    browser.click('.submit-button')
+    var allIdeas = browser.element('.message')
+
+    assert.equal(allIdeas.getText(), 'generally terrible comment')
   })
 })
