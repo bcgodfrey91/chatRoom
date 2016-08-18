@@ -11,58 +11,45 @@ describe ('webpage interaction', function(){
 describe('attributes of our application', function(){
   it('should have an input field that we can type in', function(){
     browser.url('/');
-    var userMessage = browser.element('.user-message')
+    var userInput = browser.element('.user-input')
 
-    userMessage.setValue('generally terrible comment')
+    userInput.setValue('generally terrible comment')
 
-    assert.equal(userMessage.getValue(), 'generally terrible comment')
+    assert.equal(userInput.getValue(), 'generally terrible comment')
   })
 
   it('should have a button that lets us send that message', function(){
 
-    browser.click('.submit-button')
-    var allIdeas = browser.element('.message')
-
-    assert.equal(allIdeas.getText(), 'generally terrible comment')
-  })
-
-  it('should set input field back to blank', function(){
-  var userMessage = browser.element('.user-message')
-
-    assert.equal(userMessage.getValue(), '')
-  })
-})
-const assert = require('assert')
-
-describe ('webpage interaction', function(){
-  it('should have a title', function(){
-    browser.url('/');
-    var title = browser.getTitle();
-    assert.equal(title, 'Cat Chat')
-  });
-})
-
-describe('attributes of our application', function(){
-  it('should have an input field that we can type in', function(){
-    browser.url('/');
+    browser.click('.send-button')
     var userMessage = browser.element('.user-message')
 
-    userMessage.setValue('generally terrible comment')
-
-    assert.equal(userMessage.getValue(), 'generally terrible comment')
-  })
-
-  it('should have a button that lets us send that message', function(){
-
-    browser.click('.submit-button')
-    var allIdeas = browser.element('.message')
-
-    assert.equal(allIdeas.getText(), 'generally terrible comment')
+    assert.equal(userMessage.getText(), 'generally terrible comment')
   })
 
   it('should set input field back to blank', function(){
-  var userMessage = browser.element('.user-message')
+  var userInput= browser.element('.user-input')
 
-  assert.equal(userMessage.getValue(), '')
+  assert.equal(userInput.getValue(), '')
   })
+
+  it('should disable the send button if user input is empty', function(){
+    var userInput= browser.element('.user-input')
+
+    var sendButton =  browser.element('.send-button')
+
+
+    assert.equal(userInput.getValue(), '')
+    assert.equal(sendButton.isEnabled(), false);
+  })
+
+  it('should generate a delayed response to the users message', function(){
+    var botMessage = browser.element('.bot-message')
+
+
+    browser.timeoutsImplicitWait(1200);
+    assert.equal(botMessage.getText(), 'Hello')
+  })
+
+
+
 })
