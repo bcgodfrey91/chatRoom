@@ -21,7 +21,7 @@ describe('attributes of our application', function(){
   it('should have a button that lets us send that message', function(){
 
     browser.click('.send-button')
-    var allIdeas = browser.element('.message')
+    var allIdeas = browser.element('.user-message')
 
     assert.equal(allIdeas.getText(), 'generally terrible comment')
   })
