@@ -32,9 +32,16 @@ describe('attributes of our application', function(){
   assert.equal(userMessage.getValue(), '')
   })
 
-  // it('should disable the send button if user has not typed anything', function(){
-  //
-  // })
+  it('should disable the send button if user input is empty', function(){
+    var userMessage = browser.element('.user-input')
+
+    var sendButton =  browser.element('.send-button')
+
+
+    assert.equal(userMessage.getValue(), '')
+    assert.equal(sendButton.isEnabled(), false);
+
+  })
 
 
 })
