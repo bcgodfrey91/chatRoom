@@ -11,37 +11,43 @@ describe ('webpage interaction', function(){
 describe('attributes of our application', function(){
   it('should have an input field that we can type in', function(){
     browser.url('/');
-    var userMessage = browser.element('.user-input')
+    var userInput = browser.element('.user-input')
 
-    userMessage.setValue('generally terrible comment')
+    userInput.setValue('generally terrible comment')
 
-    assert.equal(userMessage.getValue(), 'generally terrible comment')
+    assert.equal(userInput.getValue(), 'generally terrible comment')
   })
 
   it('should have a button that lets us send that message', function(){
 
     browser.click('.send-button')
-    var allIdeas = browser.element('.user-message')
+    var userMessage = browser.element('.user-message')
 
-    assert.equal(allIdeas.getText(), 'generally terrible comment')
+    assert.equal(userMessage.getText(), 'generally terrible comment')
   })
 
   it('should set input field back to blank', function(){
-  var userMessage = browser.element('.user-input')
+  var userInput= browser.element('.user-input')
 
-  assert.equal(userMessage.getValue(), '')
+  assert.equal(userInput.getValue(), '')
   })
 
   it('should disable the send button if user input is empty', function(){
-    var userMessage = browser.element('.user-input')
+    var userInput= browser.element('.user-input')
 
     var sendButton =  browser.element('.send-button')
 
 
-    assert.equal(userMessage.getValue(), '')
+    assert.equal(userInput.getValue(), '')
     assert.equal(sendButton.isEnabled(), false);
-
   })
 
+  it('should generate a delayed response to the users message', function(){
+    var botMessage = browser.element('.bot-message')
+
+    //fix this test plzzzzzzzzzz
+
+    assert.equal(botMessage.getText(), 'Hello')
+  })
 
 })
