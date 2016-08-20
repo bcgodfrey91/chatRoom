@@ -19,12 +19,49 @@ describe ('Chatroom', function(){
     assert.deepEqual(chatroom.messages, []);
   })
 
-  it('should have a function that stores a message to the array', function(){
+  it('should have a function that places a message to the array', function(){
     var chatroom = new Chatroom({});
     var message = new Message({id: 'id', user: 'user', text: 'text'})
 
-    chatroom.storeMessage(message);
+    chatroom.createMessage(message)
 
     assert.equal(chatroom.messages.length, 1)
   })
+
+  it('should let a message maintain its properties once it is placed into the array', function(){
+    var chatroom = new Chatroom({});
+    var message = new Message({id: 'id', user: 'user', text: 'text'})
+
+    chatroom.createMessage(message)
+
+    assert.equal(chatroom.messages[0].id, 'id')
+    assert.equal(chatroom.messages[0].user, 'user')
+    assert.equal(chatroom.messages[0].text, 'text')
+  })
+
+  it('should be able to store messages in local storage', function(){
+    var chatroom = new Chatroom({});
+    var message = new Message({id: 'id', user: 'user', text: 'text'});
+
+    chatroom.createMessage(message);
+    chatroom.storeMessage(message);
+
+    var storedMessages = JSON.parse(localStorage.getItem('messages'));
+
+    assert.equal(chatroom.messages[0].id, storedMessages[0].id);
+  })
+
+  it('should be able to retreive messages from local storage', function(){
+    var chatroom = new Chatroom({});
+    var message = new Message({id: 'id', user: 'user', text: 'text'});
+
+    chatroom.createMessage(message);
+    chatroom.storeMessage(message);
+
+    var storedMessages = chatroom.retrieveMessages();
+
+    assert.equal(chatroom.messages[0].id, storedMessages[0].id);
+  })
+
+  
 })
