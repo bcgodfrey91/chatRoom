@@ -6,10 +6,27 @@ describe('Message', function(){
     assert.isFunction(Message)
   });
 
-  it('should have an id, username, and text for each Message', function(){
+  it('should be an object', function(){
+    var message = new Message({})
 
-    var message = new Message({id: 1, user: 'Ben and Andy', text: 'suh dude'})
+    assert.isObject(message)
+  })
 
-    assert.equal(message.id, 1, message.user, 'Ben and Andy', message.text, 'suh dude')
+  it('should have an id', function(){
+    var message = new Message({id: 0})
+
+    assert.equal(message.id, 0)
   });
+
+  it('should have a user', function(){
+    var message = new Message({id: 0, user: 'Bandy'})
+
+    assert.equal(message.id, 0, message.user, 'Bandy')
+  })
+
+  it ('should have a text that the user submits', function(){
+    var message = new Message({id: 0, user: 'Bandy', text: 'suh duh'})
+
+    assert.equal(message.id, 0, message.user, 'Bandy', message.text, 'suh duh')
+  })
 });
