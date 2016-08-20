@@ -50,6 +50,8 @@ describe('attributes of our application', function(){
     assert.equal(botMessage.getText(), 'Hello')
   })
 
-
+  it('should have button that deletes the message from the DOM' function(){
+    
+  })
 
 })

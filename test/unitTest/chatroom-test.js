@@ -44,7 +44,7 @@ describe ('Chatroom', function(){
     var message = new Message({id: 'id', user: 'user', text: 'text'});
 
     chatroom.createMessage(message);
-    chatroom.storeMessage(message);
+    chatroom.storeMessages(message);
 
     var storedMessages = JSON.parse(localStorage.getItem('messages'));
 
@@ -56,12 +56,42 @@ describe ('Chatroom', function(){
     var message = new Message({id: 'id', user: 'user', text: 'text'});
 
     chatroom.createMessage(message);
-    chatroom.storeMessage(message);
+    chatroom.storeMessages(message);
 
     var storedMessages = chatroom.retrieveMessages();
 
     assert.equal(chatroom.messages[0].id, storedMessages[0].id);
   })
 
-  
+  it('should be able to delete the message from local storage', function(){
+    var chatroom = new Chatroom({});
+    var message1 = new Message({id: 1});
+    var message2 = new Message({id: 2});
+
+    chatroom.createMessage(message1);
+    chatroom.createMessage(message2);
+    chatroom.storeMessages();
+
+    chatroom.removeMessageFromStorage(message1.id)
+
+    chatroom.retrieveMessages();
+
+    assert.equal(chatroom.messages[0].id, message2.id);
+  })
+
+  it('should allow the user to edit their previous messages', function(){
+    var chatroom = new Chatroom({});
+    var message = new Message({id: 1, user: 'Bandy', text: 'suh duh'});
+
+    chatroom.createMessage(message);
+    chatroom.storeMessages();
+
+    var editedMessage = new Message({id: 1, user: 'Bandy', text: 'asuhduh'})
+
+    chatroom.editMessage(editedMessage);
+
+    chatroom.retrieveMessages();
+
+    assert.equal(chatroom.messages[0].text, editedMessage.text);
+  })
 })
