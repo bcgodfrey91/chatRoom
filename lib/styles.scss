@@ -1,7 +1,35 @@
+.chat{
+display: flex;
+flex-direction: column;
+border: 5px solid black;
+}
+
+
 .bot-message {
+  border: 2px solid purple;
   color: blue;
+  margin-left: 10px;
+  width: 90vw;
+}
+
+
+.message-container {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  border: 2px solid blanchedalmond;
+  width: 90vw;
 }
 
 .user-message {
+  margin-right: 10px;
   color: red;
+}
+
+.delete-button{
+  margin-right: 10px;
+}
+
+.user-input {
+  width: 80vw;
 }
