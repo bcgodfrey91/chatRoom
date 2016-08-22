@@ -67,7 +67,6 @@ describe ('Chatroom', function(){
 
     chatroom.storeMessages(0, 'andy', 'wow', 'brah')
     chatroom.storeMessages(1, 'ben', 'howdy', 'sah duh')
-    // debugger
     chatroom.removeMessageFromStorage(0)
     chatroom.retrieveMessages()
 
