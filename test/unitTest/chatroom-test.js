@@ -65,14 +65,13 @@ describe ('Chatroom', function(){
   it('should be able to delete the message from local storage', function(){
     var chatroom = new Chatroom();
 
-    chatroom.createMessage(0, 'andy', 'wow', 'hello');
-    chatroom.createMessage(1, 'ben', 'howdy', 'sah duh');
-    chatroom.storeMessages();
-
+    chatroom.storeMessages(0, 'andy', 'wow', 'brah');
+    chatroom.storeMessages(1, 'ben', 'howdy', 'sah duh');
+    // debugger
     chatroom.removeMessageFromStorage(0)
     chatroom.retrieveMessages();
 
-    assert.equal(chatroom.messages[0].id, 1);
+    assert.equal(chatroom.messages[1].id, 1);
   })
 
   it('should allow the user to edit their previous messages', function(){
