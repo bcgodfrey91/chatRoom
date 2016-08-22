@@ -18,6 +18,12 @@ describe('attributes of our application', function(){
     assert.equal(userInput.getValue(), 'generally terrible comment')
   })
 
+  it('should have a counter that keeps track of characters in the user input field', function(){
+    var characterCounter = browser.element('.character-counter')
+
+    assert.equal(characterCounter.getText(), 'Counter: 26')
+  })
+
   it('should have a button that lets us send that message', function(){
 
     browser.click('.send-button')
@@ -26,11 +32,12 @@ describe('attributes of our application', function(){
     assert.equal(userMessage.getText(), 'generally terrible comment')
   })
 
+
   it('should set input field back to blank', function(){
   var userInput= browser.element('.user-input')
 
   assert.equal(userInput.getValue(), '')
-  })
+})
 
   it('should disable the send button if user input is empty', function(){
     var userInput= browser.element('.user-input')
@@ -47,4 +54,5 @@ describe('attributes of our application', function(){
     browser.timeoutsImplicitWait(1200)
     assert.equal(typeof botMessage.getText(), 'string')
   })
+
 })
