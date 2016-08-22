@@ -1,35 +1,69 @@
+
+body {
+}
+
+h1 {
+  color: grey;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+}
+
 .chat{
-display: flex;
-flex-direction: column;
-border: 5px solid black;
+  background:-webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(0,255,255,1) 100%); /* safari5.1+,chrome10+ */
+  border: 5px solid black;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
 }
-
-
-.bot-message {
-  border: 2px solid purple;
-  color: blue;
-  margin-left: 10px;
-  width: 90vw;
-}
-
 
 .message-container {
   display: flex;
   justify-content: flex-end;
   flex-wrap: wrap;
-  // border: 2px solid blanchedalmond;
   width: 90vw;
 }
 
 .user-message {
-  margin-right: 10px;
-  color: red;
+  color: blue;
+  font-family: 'Baloo Chettan', cursive;
+  margin-right: 20px;
+}
+
+.bot-message {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1C64FF), color-stop(95%, #1C64FF), color-stop(100%, #ffffff)); /* safari4+,chrome */
+  border: 2px solid black;
+  border-radius: 7px;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  margin-left: 10px;
+  text-align: center;
+  width: 90vw;
 }
 
 .delete-button{
-  margin-right: 10px;
+  color: red;
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #000000), color-stop(30%, #000000), color-stop(50%, #FF0000), color-stop(70%, #000000), color-stop(100%, #000000)); /* safari4+,chrome */
+background: -webkit-radial-gradient(center, ellipse cover, #000000 0%, #000000 30%, #FF0000 50%, #000000 70%, #000000 100%); /* safari5.1+,chrome10+ */
+  border-radius: 50%;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .user-input {
+  background: -webkit-linear-gradient(270deg, #ffffff 0%, #FFFFFF 0%, #ffffff 80%, #FF0000 100%); /* safari5.1+,chrome10+ */
+  font-weight: bold;
+  border-radius: 7px;
   width: 80vw;
+}
+
+.show-messages {
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #FF08F7), color-stop(70%, #FF08F7), color-stop(100%, #000000)); /* safari4+,chrome */
+  background: -webkit-radial-gradient(center, ellipse cover, #FF08F7 0%, #FF08F7 70%, #000000 100%); /* safari5.1+,chrome10+ */
+  border-radius: 7px;
+}
+
+.character-counter {
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
 }
