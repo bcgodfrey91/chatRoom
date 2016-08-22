@@ -1,5 +1,5 @@
-require('chai').assert;
+require('chai').assert
 
-require('./message-test');
+require('./message-test')
 
-require('./chatroom-test');
+require('./chatroom-test')
