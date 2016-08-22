@@ -1,10 +1,10 @@
-const assert = require('chai').assert;
+const assert = require('chai').assert
 const Message = require('../../lib/message')
 
 describe('Message', function(){
   it('should create a function', function(){
     assert.isFunction(Message)
-  });
+  })
 
   it('should be an object', function(){
     var message = new Message({})
@@ -16,7 +16,7 @@ describe('Message', function(){
     var message = new Message({id: 0})
 
     assert.equal(message.id, 0)
-  });
+  })
 
   it('should have a user', function(){
     var message = new Message({id: 0, user: 'Bandy'})
@@ -29,4 +29,4 @@ describe('Message', function(){
 
     assert.equal(message.id, 0, message.user, 'Bandy', message.text, 'suh duh')
   })
-});
+})
